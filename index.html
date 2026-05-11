@@ -1,0 +1,1277 @@
+<!-- Design System -->
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Zenith Planner - 今日专注</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d9e3f2",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d9e3f2",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-surface-variant": "#434654",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "background": "#fcf9f8",
+                        "secondary": "#555f6c",
+                        "tertiary-container": "#575b5e",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#d0d3d6",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary": "#404446",
+                        "surface-tint": "#0c56d0",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-surface": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#181c1e",
+                        "secondary-fixed-dim": "#bdc7d6",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5b6572",
+                        "on-secondary-fixed": "#131c27",
+                        "tertiary-fixed": "#e0e3e6",
+                        "tertiary-fixed-dim": "#c3c7ca",
+                        "on-tertiary-fixed-variant": "#43474a",
+                        "outline": "#737685",
+                        "inverse-surface": "#313030",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003d9b",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface pb-32 md:pb-0 min-h-screen">
+    <!-- TopAppBar -->
+    <header class="w-full top-0 sticky bg-surface dark:bg-background z-40 transition-colors duration-200 ease-in-out">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-sm w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-md">
+                <div
+                    class="w-10 h-10 rounded-full bg-secondary-container overflow-hidden flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined" data-icon="person">person</span>
+                </div>
+                <h1 class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim">Zenith
+                    Planner</h1>
+            </div>
+            <button
+                class="w-10 h-10 flex items-center justify-center rounded-full text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed/10 transition-colors duration-200 ease-in-out">
+                <span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+            </button>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-lg pb-xl">
+        <!-- Header Section -->
+        <section class="mb-lg">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">今日专注</h2>
+            <div class="bg-primary/5 rounded-xl p-md border border-primary/10 flex items-start gap-sm">
+                <span class="material-symbols-outlined text-primary mt-1" data-icon="tips_and_updates"
+                    data-weight="fill" style="font-variation-settings: 'FILL' 1;">tips_and_updates</span>
+                <p class="font-body-md text-body-md text-on-surface-variant italic">"让今天成为你掌控专注力的一天。"</p>
+            </div>
+        </section>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+            <!-- Core Tasks (P0/P1) -->
+            <section class="md:col-span-8 flex flex-col gap-md">
+                <h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+                    <span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+                    Top 3 核心任务
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                    <!-- Task Card 1 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_rgba(0,61,155,0.04)] border border-surface-variant flex flex-col justify-between h-full hover:shadow-[0_8px_30px_rgba(0,61,155,0.08)] transition-shadow duration-300">
+                        <div>
+                            <div class="flex justify-between items-start mb-sm">
+                                <span
+                                    class="bg-error/10 text-error font-label-sm text-label-sm px-2 py-1 rounded">P0</span>
+                                <span
+                                    class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="schedule">schedule</span> 09:00-11:00
+                                </span>
+                            </div>
+                            <h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-xs">项目架构评审</h4>
+                            <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">准备 Q4
+                                核心架构优化方案，需与基础架构团队确认可行性。</p>
+                        </div>
+                        <div class="mt-md pt-md border-t border-surface-variant flex justify-between items-center">
+                            <span class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+                                <span class="material-symbols-outlined text-[16px]" data-icon="group">group</span> 4 人参与
+                            </span>
+                            <button
+                                class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+                                <span class="material-symbols-outlined text-[18px]"
+                                    data-icon="arrow_forward">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Task Card 2 -->
+                    <div
+                        class="bg-surface-container-lowest rounded-xl p-md shadow-[0_4px_20px_rgba(0,61,155,0.04)] border border-surface-variant flex flex-col justify-between h-full hover:shadow-[0_8px_30px_rgba(0,61,155,0.08)] transition-shadow duration-300">
+                        <div>
+                            <div class="flex justify-between items-start mb-sm">
+                                <span
+                                    class="bg-[#ff9800]/10 text-[#f57c00] font-label-sm text-label-sm px-2 py-1 rounded">P1</span>
+                                <span
+                                    class="font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs">
+                                    <span class="material-symbols-outlined text-[16px]"
+                                        data-icon="schedule">schedule</span> 14:00-15:00
+                                </span>
+                            </div>
+                            <h4 class="font-body-lg text-body-lg font-semibold text-on-surface mb-xs">客户同步</h4>
+                            <p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">与 A
+                                客户同步本周进展，收集关于新功能的需求反馈。</p>
+                        </div>
+                        <div class="mt-md pt-md border-t border-surface-variant flex justify-between items-center">
+                            <span class="font-label-sm text-label-sm text-primary flex items-center gap-xs">
+                                <span class="material-symbols-outlined text-[16px]" data-icon="call">call</span> 线上会议
+                            </span>
+                            <button
+                                class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+                                <span class="material-symbols-outlined text-[18px]"
+                                    data-icon="arrow_forward">arrow_forward</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Task Card 3 (Empty Slot) -->
+                    <div
+                        class="bg-secondary-container/20 border-2 border-dashed border-secondary-container rounded-xl p-md flex flex-col items-center justify-center h-full min-h-[160px] text-on-surface-variant hover:bg-secondary-container/40 transition-colors cursor-pointer">
+                        <span class="material-symbols-outlined text-4xl mb-sm opacity-50"
+                            data-icon="add_task">add_task</span>
+                        <span class="font-label-md text-label-md">添加第 3 项核心任务</span>
+                    </div>
+                </div>
+            </section>
+            <!-- Sidebar / Overdue & Remaining -->
+            <section class="md:col-span-4 flex flex-col gap-lg">
+                <!-- Overdue -->
+                <div>
+                    <h3
+                        class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-sm flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]" data-icon="warning">warning</span>
+                        需要关注
+                    </h3>
+                    <div class="bg-error-container/20 border border-error/20 rounded-xl p-md">
+                        <div class="flex items-start gap-sm">
+                            <span class="material-symbols-outlined text-error mt-0.5"
+                                data-icon="event_repeat">event_repeat</span>
+                            <div class="flex-1">
+                                <h4 class="font-body-md text-body-md font-medium text-on-surface">预算预测 Q3</h4>
+                                <div class="flex items-center gap-sm mt-xs">
+                                    <span
+                                        class="bg-error text-on-error font-label-sm text-label-sm px-2 py-0.5 rounded-full flex items-center gap-xs">
+                                        <span class="material-symbols-outlined text-[12px]"
+                                            data-icon="schedule">schedule</span> 延期 1 天
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Remaining Tasks -->
+                <div class="flex-1">
+                    <h3
+                        class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider mb-sm flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]" data-icon="list_alt">list_alt</span>
+                        其他待办
+                    </h3>
+                    <ul class="space-y-xs">
+                        <li
+                            class="flex items-center gap-sm p-sm rounded-lg hover:bg-secondary-container/30 transition-colors group">
+                            <div
+                                class="w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors cursor-pointer">
+                            </div>
+                            <span class="font-body-md text-body-md text-on-surface">回复邮件提问</span>
+                        </li>
+                        <li
+                            class="flex items-center gap-sm p-sm rounded-lg hover:bg-secondary-container/30 transition-colors group">
+                            <div
+                                class="w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors cursor-pointer">
+                            </div>
+                            <span class="font-body-md text-body-md text-on-surface">更新每周周报</span>
+                        </li>
+                        <li
+                            class="flex items-center gap-sm p-sm rounded-lg hover:bg-secondary-container/30 transition-colors group">
+                            <div
+                                class="w-5 h-5 rounded border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors cursor-pointer">
+                            </div>
+                            <span class="font-body-md text-body-md text-on-surface">阅读技术文档 30 分钟</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Action Button -->
+                <div class="mt-auto pt-md">
+                    <button
+                        class="w-full h-11 bg-primary text-on-primary font-label-md text-label-md rounded-xl flex items-center justify-center gap-sm hover:opacity-90 active:scale-[0.98] transition-all shadow-[0_4px_14px_rgba(0,61,155,0.39)]">
+                        <span class="material-symbols-outlined" data-icon="play_arrow" data-weight="fill"
+                            style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                        一键开始专注
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 left-0 w-full flex justify-around items-center pt-xs pb-lg px-margin-mobile bg-surface dark:bg-background shadow-[0_-4px_20px_rgba(12,86,208,0.04)] z-50 md:hidden">
+        <!-- Active Tab: 今日 -->
+        <a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-container text-primary dark:text-on-primary-container rounded-xl px-4 py-1 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim" data-icon="calendar_today"
+                data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_today</span>
+            <span class="font-label-sm text-label-sm mt-1 text-primary dark:text-primary-fixed-dim">今日</span>
+        </a>
+        <!-- Inactive Tab: 周计划 -->
+        <a class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="date_range">date_range</span>
+            <span class="font-label-sm text-label-sm mt-1">周计划</span>
+        </a>
+        <!-- Inactive Tab: 数据 -->
+        <a class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="insights">insights</span>
+            <span class="font-label-sm text-label-sm mt-1">数据</span>
+        </a>
+        <!-- Inactive Tab: 个人中心 -->
+        <a class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined" data-icon="person">person</span>
+            <span class="font-label-sm text-label-sm mt-1">个人中心</span>
+        </a>
+    </nav>
+</body>
+
+</html>
+
+<!-- 今日专注 (Today) - 简约蓝白版 -->
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Zenith Planner - 周计划</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d9e3f2",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d9e3f2",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-surface-variant": "#434654",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "background": "#fcf9f8",
+                        "secondary": "#555f6c",
+                        "tertiary-container": "#575b5e",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#d0d3d6",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary": "#404446",
+                        "surface-tint": "#0c56d0",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-surface": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#181c1e",
+                        "secondary-fixed-dim": "#bdc7d6",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5b6572",
+                        "on-secondary-fixed": "#131c27",
+                        "tertiary-fixed": "#e0e3e6",
+                        "tertiary-fixed-dim": "#c3c7ca",
+                        "on-tertiary-fixed-variant": "#43474a",
+                        "outline": "#737685",
+                        "inverse-surface": "#313030",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003d9b",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "headline-xl": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"],
+                        "label-sm": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .icon-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="antialiased flex flex-col min-h-screen">
+    <!-- TopAppBar -->
+    <header class="w-full top-0 sticky bg-surface dark:bg-background z-40 transition-colors duration-200 ease-in-out">
+        <div
+            class="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-sm w-full max-w-[1280px] mx-auto">
+            <div class="flex items-center gap-sm">
+                <!-- Leading Avatar -->
+                <div
+                    class="w-[32px] h-[32px] rounded-full bg-secondary-container flex items-center justify-center text-primary font-label-md overflow-hidden">
+                    <span class="material-symbols-outlined text-[20px]">person</span>
+                    <span class="sr-only">用户头像</span>
+                </div>
+                <!-- Headline -->
+                <h1
+                    class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">
+                    Zenith Planner</h1>
+            </div>
+            <!-- Desktop Navigation (Responsive Shell Logic) -->
+            <nav class="hidden md:flex items-center gap-lg">
+                <a class="flex items-center gap-xs text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed/10 px-md py-sm rounded-lg transition-colors duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">calendar_today</span>
+                    <span class="font-label-md text-label-md">今日</span>
+                </a>
+                <a class="flex items-center gap-xs text-primary dark:text-primary-fixed-dim bg-secondary-container/30 px-md py-sm rounded-lg transition-colors duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined icon-fill text-[20px]">date_range</span>
+                    <span class="font-label-md text-label-md">周计划</span>
+                </a>
+                <a class="flex items-center gap-xs text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed/10 px-md py-sm rounded-lg transition-colors duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">insights</span>
+                    <span class="font-label-md text-label-md">数据</span>
+                </a>
+                <a class="flex items-center gap-xs text-secondary dark:text-secondary-fixed-dim hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed/10 px-md py-sm rounded-lg transition-colors duration-200 ease-in-out"
+                    href="#">
+                    <span class="material-symbols-outlined text-[20px]">person</span>
+                    <span class="font-label-md text-label-md">个人中心</span>
+                </a>
+            </nav>
+            <!-- Trailing Icon -->
+            <button
+                class="w-[40px] h-[40px] rounded-full flex items-center justify-center text-primary dark:text-primary-fixed-dim hover:bg-secondary-container/50 dark:hover:bg-secondary-fixed/10 transition-colors duration-200 ease-in-out">
+                <span class="material-symbols-outlined">smart_toy</span>
+            </button>
+        </div>
+    </header>
+    <!-- Main Canvas -->
+    <main
+        class="flex-grow w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-lg pb-xl flex flex-col gap-xl">
+        <!-- Page Header Section -->
+        <section class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+            <div class="flex flex-col gap-sm">
+                <div class="flex items-center gap-sm">
+                    <h2 class="font-headline-xl text-headline-xl text-on-surface">第 42 周计划</h2>
+                    <span
+                        class="px-sm py-xs rounded-full bg-surface-container-high border border-outline-variant font-label-sm text-label-sm text-on-surface-variant flex items-center gap-xs">
+                        <span class="w-[6px] h-[6px] rounded-full bg-tertiary"></span>
+                        待确认 (草稿)
+                    </span>
+                </div>
+                <p class="font-body-md text-body-md text-secondary">10月16日 - 10月20日</p>
+            </div>
+            <button
+                class="bg-primary text-on-primary font-label-md text-label-md h-[44px] px-lg rounded-xl hover:opacity-90 transition-opacity w-fit flex items-center gap-xs">
+                <span class="material-symbols-outlined text-[18px]">check</span>
+                确认计划
+            </button>
+        </section>
+        <!-- Timeline Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-5 gap-md lg:gap-gutter relative">
+            <!-- Decorative Background Lines for Desktop -->
+            <div class="hidden md:block absolute top-0 left-0 w-full h-[1px] bg-surface-variant mt-xl z-0"></div>
+            <!-- Monday -->
+            <div class="flex flex-col gap-md z-10">
+                <div class="flex items-center gap-xs text-on-surface">
+                    <span
+                        class="w-[32px] h-[32px] rounded-full bg-secondary-container flex items-center justify-center font-label-md text-label-md text-primary">一</span>
+                    <span class="font-label-md text-label-md text-secondary">10/16</span>
+                </div>
+                <!-- Task Card: P0 -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-sm relative overflow-hidden group hover:border-primary/30 hover:shadow-[0_4px_20px_rgba(0,61,155,0.06)] transition-all duration-200">
+                    <div class="absolute top-0 left-0 w-[4px] h-full bg-error"></div>
+                    <div class="flex flex-col gap-xs ml-xs">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-xs py-[2px] rounded bg-error-container text-on-error-container font-label-sm text-label-sm">P0</span>
+                            <span
+                                class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">more_horiz</span>
+                        </div>
+                        <h4 class="font-label-md text-label-md text-on-surface mt-xs leading-tight">深度工作：战略提案</h4>
+                        <div class="flex items-center gap-xs text-secondary mt-xs">
+                            <span class="material-symbols-outlined text-[14px]">schedule</span>
+                            <span class="font-label-sm text-label-sm">09:00 - 12:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tuesday -->
+            <div class="flex flex-col gap-md z-10">
+                <div class="flex items-center gap-xs text-on-surface">
+                    <span
+                        class="w-[32px] h-[32px] rounded-full bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant">二</span>
+                    <span class="font-label-md text-label-md text-secondary">10/17</span>
+                </div>
+                <!-- Task Card: P1 -->
+                <div
+                    class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-sm relative overflow-hidden group hover:border-primary/30 hover:shadow-[0_4px_20px_rgba(0,61,155,0.06)] transition-all duration-200">
+                    <div class="absolute top-0 left-0 w-[4px] h-full bg-primary-container"></div>
+                    <div class="flex flex-col gap-xs ml-xs">
+                        <div class="flex items-center justify-between">
+                            <span
+                                class="px-xs py-[2px] rounded bg-primary-fixed text-on-primary-fixed-variant font-label-sm text-label-sm">P1</span>
+                            <span
+                                class="material-symbols-outlined text-[16px] text-outline opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">more_horiz</span>
+                        </div>
+                        <h4 class="font-label-md text-label-md text-on-surface mt-xs leading-tight">季度复盘准备</h4>
+                        <div class="flex items-center gap-xs text-secondary mt-xs">
+                            <span class="material-symbols-outlined text-[14px]">group</span>
+                            <span class="font-label-sm text-label-sm">跨部门协作</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Wednesday -->
+            <div class="flex flex-col gap-md z-10">
+                <div class="flex items-center gap-xs text-on-surface">
+                    <span
+                        class="w-[32px] h-[32px] rounded-full bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant">三</span>
+                    <span class="font-label-md text-label-md text-secondary">10/18</span>
+                </div>
+                <!-- Empty State Dropzone -->
+                <div
+                    class="h-[100px] rounded-xl border-2 border-dashed border-surface-variant bg-surface-container-low flex items-center justify-center text-outline hover:border-primary/50 hover:bg-secondary-container/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">add</span>
+                </div>
+            </div>
+            <!-- Thursday -->
+            <div class="flex flex-col gap-md z-10">
+                <div class="flex items-center gap-xs text-on-surface">
+                    <span
+                        class="w-[32px] h-[32px] rounded-full bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant">四</span>
+                    <span class="font-label-md text-label-md text-secondary">10/19</span>
+                </div>
+                <!-- Empty State Dropzone -->
+                <div
+                    class="h-[100px] rounded-xl border-2 border-dashed border-surface-variant bg-surface-container-low flex items-center justify-center text-outline hover:border-primary/50 hover:bg-secondary-container/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">add</span>
+                </div>
+            </div>
+            <!-- Friday -->
+            <div class="flex flex-col gap-md z-10">
+                <div class="flex items-center gap-xs text-on-surface">
+                    <span
+                        class="w-[32px] h-[32px] rounded-full bg-surface-container-high flex items-center justify-center font-label-md text-label-md text-on-surface-variant">五</span>
+                    <span class="font-label-md text-label-md text-secondary">10/20</span>
+                </div>
+                <!-- Empty State Dropzone -->
+                <div
+                    class="h-[100px] rounded-xl border-2 border-dashed border-surface-variant bg-surface-container-low flex items-center justify-center text-outline hover:border-primary/50 hover:bg-secondary-container/20 transition-colors cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">add</span>
+                </div>
+            </div>
+        </section>
+        <!-- AI Optimization Suggestion Card -->
+        <section class="mt-lg">
+            <div
+                class="bg-secondary-fixed/30 rounded-xl p-lg border border-secondary-container flex flex-col md:flex-row items-start md:items-center gap-md">
+                <div
+                    class="w-[48px] h-[48px] rounded-full bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm shrink-0">
+                    <span class="material-symbols-outlined text-[24px] icon-fill">auto_awesome</span>
+                </div>
+                <div class="flex-grow">
+                    <h3 class="font-headline-md text-[18px] text-on-surface flex items-center gap-xs">
+                        AI 日程优化建议
+                        <span
+                            class="px-xs py-[2px] rounded bg-primary text-on-primary font-label-sm text-[10px] tracking-wider uppercase">Beta</span>
+                    </h3>
+                    <p class="font-body-md text-body-md text-secondary mt-xs max-w-[800px]">
+                        检测到周二下午有连续 3 小时的会议安排。建议在 "季度复盘准备" 后预留 30 分钟的缓冲时间，以降低认知负荷并保持高效状态。
+                    </p>
+                </div>
+                <div class="flex gap-sm w-full md:w-auto mt-sm md:mt-0">
+                    <button
+                        class="flex-1 md:flex-none h-[44px] px-md rounded-xl bg-surface-container-lowest text-secondary font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors">忽略</button>
+                    <button
+                        class="flex-1 md:flex-none h-[44px] px-md rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity">一键调整</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- BottomNavBar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 w-full z-50 bg-surface dark:bg-background shadow-[0_-4px_20px_rgba(12,86,208,0.04)] pb-safe">
+        <div class="flex justify-around items-center pt-xs pb-lg px-margin-mobile">
+            <!-- Inactive Tab -->
+            <button
+                class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+                <span class="material-symbols-outlined">calendar_today</span>
+                <span class="font-label-sm text-label-sm mt-1">今日</span>
+            </button>
+            <!-- Active Tab -->
+            <button
+                class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-container text-primary dark:text-on-primary-container rounded-xl px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+                <span class="material-symbols-outlined icon-fill">date_range</span>
+                <span class="font-label-sm text-label-sm mt-1">周计划</span>
+            </button>
+            <!-- Inactive Tab -->
+            <button
+                class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+                <span class="material-symbols-outlined">insights</span>
+                <span class="font-label-sm text-label-sm mt-1">数据</span>
+            </button>
+            <!-- Inactive Tab -->
+            <button
+                class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+                <span class="material-symbols-outlined">person</span>
+                <span class="font-label-sm text-label-sm mt-1">个人中心</span>
+            </button>
+        </div>
+    </nav>
+</body>
+
+</html>
+
+<!-- 周计划 (Week Plan) - 简约蓝白版 -->
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>个人中心</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d9e3f2",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d9e3f2",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-surface-variant": "#434654",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "background": "#fcf9f8",
+                        "secondary": "#555f6c",
+                        "tertiary-container": "#575b5e",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#d0d3d6",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary": "#404446",
+                        "surface-tint": "#0c56d0",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-surface": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#181c1e",
+                        "secondary-fixed-dim": "#bdc7d6",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5b6572",
+                        "on-secondary-fixed": "#131c27",
+                        "tertiary-fixed": "#e0e3e6",
+                        "tertiary-fixed-dim": "#c3c7ca",
+                        "on-tertiary-fixed-variant": "#43474a",
+                        "outline": "#737685",
+                        "inverse-surface": "#313030",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003d9b",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col font-body-md text-body-md">
+    <!-- TopAppBar -->
+    <header class="w-full top-0 sticky bg-surface flex justify-between items-center px-margin-mobile py-sm w-full z-40">
+        <div class="flex items-center gap-sm">
+            <span class="material-symbols-outlined text-primary text-2xl"
+                style="font-variation-settings: 'FILL' 1;">account_circle</span>
+            <h1 class="font-headline-md text-headline-md font-bold text-primary">Zenith Planner</h1>
+        </div>
+        <div class="flex items-center">
+            <span class="material-symbols-outlined text-primary text-2xl"
+                style="font-variation-settings: 'FILL' 0;">smart_toy</span>
+        </div>
+    </header>
+    <!-- Main Canvas -->
+    <main class="flex-grow flex flex-col md:max-w-screen-xl md:mx-auto w-full pb-32">
+        <!-- Profile Header -->
+        <section class="px-margin-mobile py-lg mt-sm flex flex-col items-center">
+            <div class="relative w-24 h-24 mb-md">
+                <img alt="Julian Drake Profile Picture"
+                    class="w-full h-full rounded-full object-cover border-4 border-surface shadow-[0_4px_20px_rgba(0,61,155,0.1)]"
+                    data-alt="A professional headshot of a modern tech user, clean studio lighting, looking confident and approachable. The background is a soft, minimal studio backdrop in neutral tones to complement a high-performance, blue and white corporate productivity app interface. The image is crisp, high-resolution, and projects reliability."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcRZIu7kN1wHuoDv2BPbaizjBGsOiuhVIDxjplIVOFJ9UtTct-LW4QiAP7jRHfpTg2Qol6gHC8xooZMFeij4fDnXlwZRlaAadC6KqitoPqJPLWXxqp3hk_zTQrjUlQ8zioVj2igpjWZ2b1TCOH8qKgViEzAJnkqSs3rs8j-GfZI_QJm0zc5vGUs3iKQz6FDRvoc8YOrNCMlQwrSRg5qOKUuRXJKugv401gLBe0_AXAfXShFS_4fz8CU12MvEqoBbR0kAvWjNQ2yTY" />
+                <button
+                    class="absolute bottom-0 right-0 bg-primary text-on-primary rounded-full p-1.5 shadow-md flex items-center justify-center hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined text-sm"
+                        style="font-variation-settings: 'FILL' 1;">edit</span>
+                </button>
+            </div>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Julian Drake</h2>
+            <p class="font-label-md text-label-md text-secondary mt-1">High-Performance User</p>
+        </section>
+        <!-- Content Grid (Bento Style) -->
+        <div class="px-margin-mobile grid grid-cols-1 md:grid-cols-12 gap-md md:gap-lg">
+            <!-- Preferences Section -->
+            <div class="md:col-span-12">
+                <h3 class="font-label-md text-label-md text-secondary mb-sm pl-xs">个性化偏好</h3>
+                <div class="bg-secondary-container/30 rounded-xl overflow-hidden border border-secondary-container/50">
+                    <!-- Work Time -->
+                    <div
+                        class="flex items-center justify-between p-md bg-surface-container-lowest hover:bg-secondary-container/20 transition-colors border-b border-secondary-container/30 cursor-pointer">
+                        <div class="flex items-center gap-md">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0;">schedule</span>
+                            </div>
+                            <div>
+                                <p class="font-body-md text-body-md font-medium text-on-surface">工作时间</p>
+                                <p class="font-label-sm text-label-sm text-secondary">09:00 - 18:00</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-secondary">chevron_right</span>
+                    </div>
+                    <!-- Peak Energy -->
+                    <div
+                        class="flex items-center justify-between p-md bg-surface-container-lowest hover:bg-secondary-container/20 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-md">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-primary-fixed/30 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0;">bolt</span>
+                            </div>
+                            <div>
+                                <p class="font-body-md text-body-md font-medium text-on-surface">巅峰精力</p>
+                                <p class="font-label-sm text-label-sm text-secondary">10:00 - 12:00, 14:00 - 16:00</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-secondary">chevron_right</span>
+                    </div>
+                </div>
+            </div>
+            <!-- System Settings -->
+            <div class="md:col-span-12 mt-md">
+                <h3 class="font-label-md text-label-md text-secondary mb-sm pl-xs">系统与数据</h3>
+                <div
+                    class="bg-secondary-container/30 rounded-xl overflow-hidden border border-secondary-container/50 flex flex-col">
+                    <!-- Notifications -->
+                    <div
+                        class="flex items-center justify-between p-md bg-surface-container-lowest border-b border-secondary-container/30">
+                        <div class="flex items-center gap-md">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-variant/50 flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0;">notifications</span>
+                            </div>
+                            <div>
+                                <p class="font-body-md text-body-md font-medium text-on-surface">系统通知管理</p>
+                            </div>
+                        </div>
+                        <!-- Toggle Switch -->
+                        <div
+                            class="relative inline-block w-12 h-6 rounded-full bg-primary-container cursor-pointer transition-colors duration-200 ease-in-out shadow-inner">
+                            <span
+                                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-on-primary transform translate-x-6 transition-transform duration-200 ease-in-out shadow-sm"></span>
+                        </div>
+                    </div>
+                    <!-- Learning Mode -->
+                    <div
+                        class="flex items-center justify-between p-md bg-surface-container-lowest border-b border-secondary-container/30">
+                        <div class="flex items-center gap-md">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-variant/50 flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0;">school</span>
+                            </div>
+                            <div>
+                                <p class="font-body-md text-body-md font-medium text-on-surface">学习模式开关</p>
+                            </div>
+                        </div>
+                        <!-- Toggle Switch Off -->
+                        <div
+                            class="relative inline-block w-12 h-6 rounded-full bg-surface-variant cursor-pointer transition-colors duration-200 ease-in-out shadow-inner">
+                            <span
+                                class="absolute left-1 top-1 w-4 h-4 rounded-full bg-secondary transform translate-x-0 transition-transform duration-200 ease-in-out shadow-sm"></span>
+                        </div>
+                    </div>
+                    <!-- Data Export -->
+                    <div
+                        class="flex items-center justify-between p-md bg-surface-container-lowest hover:bg-secondary-container/20 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-md">
+                            <div
+                                class="w-10 h-10 rounded-lg bg-surface-variant/50 flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined"
+                                    style="font-variation-settings: 'FILL' 0;">download</span>
+                            </div>
+                            <div>
+                                <p class="font-body-md text-body-md font-medium text-on-surface">数据导出</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-secondary">chevron_right</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Logout Button -->
+            <div class="md:col-span-12 mt-lg flex justify-center">
+                <button
+                    class="w-full md:w-auto px-xl py-3 rounded-xl bg-error-container/30 text-error font-label-md text-label-md border border-error/20 hover:bg-error-container/50 transition-colors flex items-center justify-center gap-2">
+                    <span class="material-symbols-outlined text-lg"
+                        style="font-variation-settings: 'FILL' 0;">logout</span>
+                    退出登录
+                </button>
+            </div>
+        </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 left-0 w-full flex justify-around items-center pt-xs pb-lg px-margin-mobile bg-surface shadow-[0_-4px_20px_rgba(12,86,208,0.04)] z-50 md:hidden">
+        <!-- Tab 1: 今日 -->
+        <a class="flex flex-col items-center justify-center text-secondary px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined mb-1"
+                style="font-variation-settings: 'FILL' 0;">calendar_today</span>
+            <span class="font-label-sm text-label-sm">今日</span>
+        </a>
+        <!-- Tab 2: 周计划 -->
+        <a class="flex flex-col items-center justify-center text-secondary px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">date_range</span>
+            <span class="font-label-sm text-label-sm">周计划</span>
+        </a>
+        <!-- Tab 3: 数据 -->
+        <a class="flex flex-col items-center justify-center text-secondary px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 0;">insights</span>
+            <span class="font-label-sm text-label-sm">数据</span>
+        </a>
+        <!-- Tab 4: 个人中心 (Active) -->
+        <a class="flex flex-col items-center justify-center bg-secondary-container text-primary rounded-xl px-4 py-1 scale-95 active:scale-90 transition-transform duration-150"
+            href="#">
+            <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+            <span class="font-label-sm text-label-sm">个人中心</span>
+        </a>
+    </nav>
+</body>
+
+</html>
+
+<!-- 个人中心 (Profile) - 简约蓝白版 -->
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>数据复盘</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#d9e3f2",
+                        "surface": "#fcf9f8",
+                        "secondary-fixed": "#d9e3f2",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-surface-variant": "#434654",
+                        "surface-variant": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed": "#001848",
+                        "on-secondary-fixed-variant": "#3e4853",
+                        "background": "#fcf9f8",
+                        "secondary": "#555f6c",
+                        "tertiary-container": "#575b5e",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-container": "#c4d2ff",
+                        "on-tertiary-container": "#d0d3d6",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary": "#404446",
+                        "surface-tint": "#0c56d0",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3f2",
+                        "outline-variant": "#c3c6d6",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#b2c5ff",
+                        "on-surface": "#1c1b1b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#181c1e",
+                        "secondary-fixed-dim": "#bdc7d6",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#5b6572",
+                        "on-secondary-fixed": "#131c27",
+                        "tertiary-fixed": "#e0e3e6",
+                        "tertiary-fixed-dim": "#c3c7ca",
+                        "on-tertiary-fixed-variant": "#43474a",
+                        "outline": "#737685",
+                        "inverse-surface": "#313030",
+                        "primary-container": "#0052cc",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#003d9b",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "xs": "4px",
+                        "unit": "4px",
+                        "xl": "40px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "sm": "8px",
+                        "margin-mobile": "16px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+    <!-- TopAppBar -->
+    <header class="w-full top-0 sticky bg-surface dark:bg-background z-40">
+        <div class="flex justify-between items-center px-margin-mobile py-sm w-full">
+            <div class="flex items-center gap-md">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
+                    头像
+                </div>
+                <h1 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed-dim font-bold">Zenith
+                    Planner</h1>
+            </div>
+            <span class="material-symbols-outlined text-primary dark:text-primary-fixed-dim">smart_toy</span>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop py-lg space-y-xl">
+        <!-- Header Section -->
+        <section class="text-center md:text-left">
+            <h2 class="font-headline-xl text-headline-xl text-primary mb-sm">进化报告</h2>
+            <p class="font-body-md text-body-md text-secondary">本周数据深度剖析与效能洞察</p>
+        </section>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+            <!-- Overall Progress - Circular Chart (CSS based) -->
+            <div
+                class="md:col-span-4 bg-[#E6F0FF] rounded-xl p-lg flex flex-col items-center justify-center relative shadow-sm">
+                <h3 class="font-headline-md text-headline-md text-on-surface mb-lg">本周完成率</h3>
+                <div
+                    class="relative w-48 h-48 flex items-center justify-center rounded-full bg-white shadow-[0_4px_20px_rgba(0,61,155,0.04)]">
+                    <!-- SVG Circle for Progress -->
+                    <svg class="w-full h-full transform -rotate-90 absolute" viewbox="0 0 100 100">
+                        <circle cx="50" cy="50" fill="none" r="45" stroke="#E6F0FF" stroke-width="10"></circle>
+                        <!-- Stroke dasharray: circumference = 2 * pi * r = 282.7. 82% of 282.7 = ~231.8 -->
+                        <circle cx="50" cy="50" fill="none" r="45" stroke="#003d9b" stroke-dasharray="231.8 282.7"
+                            stroke-linecap="round" stroke-width="10"></circle>
+                    </svg>
+                    <div class="text-center z-10">
+                        <span class="font-headline-xl text-headline-xl text-primary block">82%</span>
+                        <span class="font-label-sm text-label-sm text-secondary">目标达成</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Peak Energy Analysis -->
+            <div class="md:col-span-8 bg-[#E6F0FF] rounded-xl p-lg flex flex-col justify-between shadow-sm">
+                <div class="flex items-center justify-between mb-md">
+                    <h3 class="font-headline-md text-headline-md text-on-surface">精力巅峰时段分析</h3>
+                    <span class="material-symbols-outlined text-primary"
+                        style="font-variation-settings: 'FILL' 1;">bolt</span>
+                </div>
+                <div
+                    class="bg-white rounded-lg p-md shadow-[0_4px_20px_rgba(0,61,155,0.04)] h-full flex flex-col justify-center">
+                    <!-- Faux Bar Chart -->
+                    <div class="flex items-end justify-between h-32 gap-xs mb-sm px-sm">
+                        <div class="w-1/6 bg-secondary-container rounded-t-sm h-1/4"></div>
+                        <div class="w-1/6 bg-primary rounded-t-sm h-full relative">
+                            <div
+                                class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-primary text-white font-label-sm text-label-sm px-2 py-1 rounded">
+                                巅峰</div>
+                        </div>
+                        <div class="w-1/6 bg-primary opacity-60 rounded-t-sm h-3/4"></div>
+                        <div class="w-1/6 bg-secondary-container rounded-t-sm h-1/2"></div>
+                        <div class="w-1/6 bg-secondary-container rounded-t-sm h-1/3"></div>
+                        <div class="w-1/6 bg-secondary-container rounded-t-sm h-1/5"></div>
+                    </div>
+                    <div class="flex justify-between text-secondary font-label-sm text-label-sm px-sm">
+                        <span>08:00</span>
+                        <span>10:00</span>
+                        <span>12:00</span>
+                        <span>14:00</span>
+                        <span>16:00</span>
+                        <span>18:00</span>
+                    </div>
+                    <p class="font-body-md text-body-md text-on-surface-variant mt-md">核心洞察：您的最高效时段集中在 <span
+                            class="text-primary font-bold">10:00 - 12:00</span>。建议将高认知负荷任务安排在此区间。</p>
+                </div>
+            </div>
+            <!-- Delay Pattern Deep Dive -->
+            <div
+                class="md:col-span-12 bg-white rounded-xl p-lg border border-outline-variant shadow-[0_4px_20px_rgba(0,61,155,0.04)]">
+                <div class="flex items-center gap-sm mb-lg">
+                    <span class="material-symbols-outlined text-error"
+                        style="font-variation-settings: 'FILL' 1;">warning</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">延期模式深度分析</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                    <!-- Issue 1 -->
+                    <div class="p-md rounded-lg bg-error-container/30 border border-error-container flex gap-md">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-error">hourglass_empty</span>
+                        </div>
+                        <div>
+                            <h4 class="font-label-md text-label-md text-on-surface font-bold mb-xs">预估不足 (45%)</h4>
+                            <p class="font-body-md text-body-md text-secondary">复杂任务的初始时间评估普遍低于实际耗时。通常发生在“研究性”或“无先例”任务上。
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Issue 2 -->
+                    <div class="p-md rounded-lg bg-[#E6F0FF]/50 border border-primary-fixed-dim flex gap-md">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-primary">notifications_paused</span>
+                        </div>
+                        <div>
+                            <h4 class="font-label-md text-label-md text-on-surface font-bold mb-xs">突发干扰 (35%)</h4>
+                            <p class="font-body-md text-body-md text-secondary">主要集中在下午时段，外部消息或临时会议打断了深度工作流，导致任务顺延。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- AI Improvement Suggestions -->
+            <div class="md:col-span-12 bg-primary-container text-on-primary-container rounded-xl p-lg">
+                <div class="flex items-center gap-sm mb-lg">
+                    <span class="material-symbols-outlined text-white"
+                        style="font-variation-settings: 'FILL' 1;">psychology</span>
+                    <h3 class="font-headline-md text-headline-md text-white">AI 效能改进建议</h3>
+                </div>
+                <ul class="space-y-sm">
+                    <li class="bg-white/10 p-md rounded-lg flex items-start gap-md backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-white mt-1">check_circle</span>
+                        <div>
+                            <h4 class="font-label-md text-label-md text-white font-bold">应用缓冲时间策略</h4>
+                            <p class="font-body-md text-body-md text-primary-fixed-dim">
+                                针对“预估不足”问题，系统建议在下周计划中，自动为所有评估超2小时的任务增加 30% 的缓冲时间。</p>
+                        </div>
+                    </li>
+                    <li class="bg-white/10 p-md rounded-lg flex items-start gap-md backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-white mt-1">do_not_disturb_on</span>
+                        <div>
+                            <h4 class="font-label-md text-label-md text-white font-bold">设定硬性免打扰区块</h4>
+                            <p class="font-body-md text-body-md text-primary-fixed-dim">鉴于上午 10:00
+                                是精力巅峰，建议在此期间开启系统级免打扰模式，并谢绝非紧急会议邀约。</p>
+                        </div>
+                    </li>
+                    <li class="bg-white/10 p-md rounded-lg flex items-start gap-md backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-white mt-1">split_scene</span>
+                        <div>
+                            <h4 class="font-label-md text-label-md text-white font-bold">拆分复杂长期任务</h4>
+                            <p class="font-body-md text-body-md text-primary-fixed-dim">
+                                发现有2个跨度超过3天的任务出现拖延倾向，建议将其拆解为单日可验证交付的小型里程碑。</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <!-- BottomNavBar -->
+    <nav
+        class="fixed bottom-0 left-0 w-full flex justify-around items-center pt-xs pb-lg px-margin-mobile bg-surface dark:bg-background shadow-[0_-4px_20px_rgba(12,86,208,0.04)] z-50 md:hidden">
+        <button
+            class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <span class="font-label-sm text-label-sm mt-1">今日</span>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined">date_range</span>
+            <span class="font-label-sm text-label-sm mt-1">周计划</span>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center bg-secondary-container dark:bg-on-secondary-container text-primary dark:text-on-primary-container rounded-xl px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">insights</span>
+            <span class="font-label-sm text-label-sm mt-1">数据</span>
+        </button>
+        <button
+            class="flex flex-col items-center justify-center text-secondary dark:text-on-surface-variant px-4 py-1 hover:opacity-80 scale-95 active:scale-90 transition-transform duration-150">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-label-sm text-label-sm mt-1">个人中心</span>
+        </button>
+    </nav>
+</body>
+
+</html>
