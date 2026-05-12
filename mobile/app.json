@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Zenith Planner",
+    "slug": "zenith-planner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "zenith",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "backgroundColor": "#fcf9f8"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.zenith.planner"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#fcf9f8"
+      },
+      "package": "com.zenith.planner"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-asset"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiUrl": "http://localhost:8001/api"
+    }
+  }
+}
