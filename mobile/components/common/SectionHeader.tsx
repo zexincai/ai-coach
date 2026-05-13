@@ -13,7 +13,8 @@ export function SectionHeader({ icon, title, color = "#003d9b", uppercase }: Sec
     <View className="flex-row items-center gap-xs mb-sm">
       <Ionicons name={icon} size={18} color={color} />
       <Text
-        className={`text-label-md text-on-surface-variant ${uppercase ? "uppercase tracking-wider" : ""}`}
+        className="text-label-md text-on-surface-variant"
+        style={uppercase ? { textTransform: "uppercase", letterSpacing: 1 } : undefined}
       >
         {title}
       </Text>

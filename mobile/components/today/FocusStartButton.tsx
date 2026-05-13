@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 export function FocusStartButton({ onPress }: { onPress: () => void }) {
   return (
     <TouchableOpacity
-      className="w-full h-11 bg-primary rounded-xl flex-row items-center justify-center gap-sm shadow-lg mt-md"
+      className="w-full h-11 bg-primary rounded-xl flex-row items-center justify-center gap-sm mt-md"
       onPress={onPress}
       activeOpacity={0.9}
       style={{

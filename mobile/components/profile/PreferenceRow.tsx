@@ -11,12 +11,16 @@ interface PreferenceRowProps {
 export function PreferenceRow({ icon, label, value, onPress }: PreferenceRowProps) {
   return (
     <TouchableOpacity
-      className="flex-row items-center justify-between p-md bg-surface-container-lowest border-b border-secondary-container/30"
+      className="flex-row items-center justify-between p-md bg-surface-container-lowest"
+      style={{ borderBottomWidth: 1, borderBottomColor: "rgba(217,227,242,0.3)" }}
       onPress={onPress}
       activeOpacity={0.7}
     >
       <View className="flex-row items-center gap-md">
-        <View className="w-10 h-10 rounded-lg bg-primary-fixed/30 items-center justify-center">
+        <View
+          className="w-10 h-10 rounded-lg items-center justify-center"
+          style={{ backgroundColor: "rgba(218,226,255,0.3)" }}
+        >
           <Ionicons name={icon} size={20} color="#003d9b" />
         </View>
         <View>

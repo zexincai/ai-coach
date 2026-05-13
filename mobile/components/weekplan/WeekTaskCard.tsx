@@ -7,18 +7,29 @@ interface WeekTaskCardProps {
   task: Task;
 }
 
-const priorityAccentColor = {
-  P0: "bg-[#ba1a1a]",
-  P1: "bg-[#0052cc]",
-  P2: "bg-[#555f6c]",
+const priorityAccentColor: Record<string, string> = {
+  P0: "#ba1a1a",
+  P1: "#0052cc",
+  P2: "#555f6c",
 };
 
 export function WeekTaskCard({ task }: WeekTaskCardProps) {
   const accent = priorityAccentColor[task.priority];
 
   return (
-    <View className="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/50 shadow-sm relative overflow-hidden">
-      <View className={`absolute top-0 left-0 w-1 h-full ${accent}`} />
+    <View
+      className="bg-surface-container-lowest rounded-xl p-md relative overflow-hidden"
+      style={{
+        borderWidth: 1,
+        borderColor: "rgba(195,198,214,0.5)",
+        shadowColor: "rgba(0,0,0,0.05)",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+        elevation: 2,
+      }}
+    >
+      <View className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: accent }} />
       <View className="flex-col gap-xs ml-xs">
         <View className="flex-row items-center justify-between">
           <PriorityBadge priority={task.priority} />

@@ -21,7 +21,17 @@ export function PeakEnergyChart({ periods }: PeakEnergyChartProps) {
   );
 
   return (
-    <View className="bg-[#E6F0FF] rounded-xl p-lg shadow-sm">
+    <View
+      className="rounded-xl p-lg"
+      style={{
+        backgroundColor: "#E6F0FF",
+        shadowColor: "rgba(0,0,0,0.05)",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+        elevation: 2,
+      }}
+    >
       <View className="flex-row items-center justify-between mb-md">
         <Text className="text-headline-md text-on-surface">精力巅峰时段分析</Text>
         <Ionicons name="flash" size={20} color="#003d9b" />

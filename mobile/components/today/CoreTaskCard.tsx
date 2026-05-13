@@ -11,7 +11,19 @@ interface CoreTaskCardProps {
 
 export function CoreTaskCard({ task, onPress, onComplete }: CoreTaskCardProps) {
   return (
-    <View className="bg-surface-container-lowest rounded-xl p-md border border-surface-variant shadow-sm flex-col justify-between flex-1 min-h-[160px]">
+    <View
+      className="bg-surface-container-lowest rounded-xl p-md flex-col justify-between flex-1"
+      style={{
+        borderWidth: 1,
+        borderColor: "#e5e2e1",
+        minHeight: 160,
+        shadowColor: "rgba(0,61,155,0.04)",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 1,
+        shadowRadius: 20,
+        elevation: 3,
+      }}
+    >
       <View>
         <View className="flex-row justify-between items-start mb-sm">
           <PriorityBadge priority={task.priority} />
@@ -24,7 +36,7 @@ export function CoreTaskCard({ task, onPress, onComplete }: CoreTaskCardProps) {
             </View>
           )}
         </View>
-        <Text className="text-body-lg font-semibold text-on-surface mb-xs" numberOfLines={2}>
+        <Text className="text-body-lg text-on-surface mb-xs" style={{ fontWeight: "600" }} numberOfLines={2}>
           {task.title}
         </Text>
         {task.description && (
@@ -33,7 +45,13 @@ export function CoreTaskCard({ task, onPress, onComplete }: CoreTaskCardProps) {
           </Text>
         )}
       </View>
-      <View className="mt-md pt-md border-t border-surface-variant flex-row justify-between items-center">
+      <View
+        className="mt-md pt-md flex-row justify-between items-center"
+        style={{
+          borderTopWidth: 1,
+          borderTopColor: "#e5e2e1",
+        }}
+      >
         {task.estimated_duration > 0 && (
           <View className="flex-row items-center gap-xs">
             <Ionicons name="time-outline" size={14} color="#003d9b" />
@@ -42,7 +60,8 @@ export function CoreTaskCard({ task, onPress, onComplete }: CoreTaskCardProps) {
         )}
         <View className="flex-row gap-sm">
           <TouchableOpacity
-            className="w-8 h-8 rounded-full bg-green-100 items-center justify-center"
+            className="w-8 h-8 rounded-full items-center justify-center"
+            style={{ backgroundColor: "#e8f5e9" }}
             onPress={onComplete}
           >
             <Ionicons name="checkmark" size={18} color="#2e7d32" />

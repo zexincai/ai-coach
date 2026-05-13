@@ -15,7 +15,10 @@ export function ImprovementTipItem({ suggestion }: { suggestion: ImprovementSugg
   const icon = iconMap[suggestion.icon] || "checkmark-circle";
 
   return (
-    <View className="bg-white/10 p-md rounded-lg flex-row items-start gap-md">
+    <View
+      className="p-md rounded-lg flex-row items-start gap-md"
+      style={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+    >
       <Ionicons name={icon} size={20} color="#fff" style={{ marginTop: 2 }} />
       <View className="flex-1">
         <Text className="text-label-md text-white font-bold mb-1">{suggestion.title}</Text>

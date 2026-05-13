@@ -46,9 +46,9 @@ async def get_current_plan(
         db.add(plan)
         await db.commit()
         await db.refresh(plan)
-
-    # Use eagerly loaded tasks from selectinload above (or empty for newly created plan)
-    tasks = plan.tasks if plan.tasks else []
+        tasks = []
+    else:
+        tasks = plan.tasks if plan.tasks else []
 
     return {
         "plan": WeekPlanRead.model_validate(plan),

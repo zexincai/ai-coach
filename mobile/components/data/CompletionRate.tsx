@@ -12,7 +12,17 @@ export function CompletionRate({ rate }: CompletionRateProps) {
   const dashLength = circumference * rate;
 
   return (
-    <View className="bg-[#E6F0FF] rounded-xl p-lg items-center justify-center shadow-sm">
+    <View
+      className="rounded-xl p-lg items-center justify-center"
+      style={{
+        backgroundColor: "#E6F0FF",
+        shadowColor: "rgba(0,0,0,0.05)",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 4,
+        elevation: 2,
+      }}
+    >
       <Text className="text-headline-md text-on-surface mb-lg">本周完成率</Text>
       <View className="w-48 h-48 items-center justify-center">
         <Svg width="100%" height="100%" viewBox="0 0 100 100" style={{ position: "absolute", transform: [{ rotate: "-90deg" }] }}>
